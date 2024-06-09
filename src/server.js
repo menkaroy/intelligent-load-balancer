@@ -1,12 +1,15 @@
+// src/server.js
+
 const express = require("express");
 const apiRoutes = require("./routes/apiRoutes");
-const logger = require("./middleware/logger");
+const loggerMiddleware = require("./middleware/logger"); // Correct import statement
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(logger);
+app.use(loggerMiddleware); // Use the imported middleware function
+
 app.use("/api", apiRoutes);
 
 app.listen(PORT, () => {

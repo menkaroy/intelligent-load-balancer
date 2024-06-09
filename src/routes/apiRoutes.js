@@ -132,14 +132,23 @@ setInterval(() => {
   }
 }, 1000);
 
+// // Background task to process Priority queue
+// setInterval(() => {
+//   const request = priorityQueue.dequeue();
+//   if (request) {
+//     console.log("Processing Priority queue request:", request);
+//   }
+// }, 1000);
+
 // Background task to process Priority queue
 setInterval(() => {
   const request = priorityQueue.dequeue();
   if (request) {
     console.log("Processing Priority queue request:", request);
+  } else {
+    console.log("Priority queue is empty");
   }
 }, 1000);
-
 // Background task to process Round-Robin queue
 setInterval(() => {
   const request = roundRobinQueue.dequeue();
